@@ -1,0 +1,66 @@
+@import "main.css";
+
+.header {
+    margin-bottom: 89px;
+}
+
+.header__logo {
+    color: rgb(46, 46, 46);
+}
+
+.header__logo:hover {
+    color: rgba(46, 46, 46, 0.63);
+}
+
+.navigation__item {
+    padding: 10px 20px;
+}
+
+.navigation__link {
+    color: rgb(46, 46, 46);
+}
+
+.navigation__link:hover {
+    color: rgba(46, 46, 46, 0.63);
+}
+
+.main__text-content {
+    margin-bottom: 113px;
+}
+
+.main__title {
+    margin-bottom: 20px;
+    text-align: center;
+    font: 50px 'Lora', sans-serif;
+    letter-spacing: 2px;
+    color: rgb(46, 46, 46);
+}
+
+.main__subtitle {
+    margin-bottom: 113px;
+    text-align: center;
+    font: 17px 'Oxygen', sans-serif;
+    color: rgba(46, 46, 46, 0.63);
+}
+
+.main__image {
+    margin-bottom: 140px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.main__text {
+    margin-bottom: 30px;
+    font: 24px/35px 'Oxygen', sans-serif;
+    color: rgba(16, 19, 21);
+}
+
+.navigation__link_footer {
+    color: rgba(255, 255, 255, 0.6);
+    transition: all 0.3s;
+    padding: 13px 10px;
+}
+
+.navigation__link_footer:hover {
+    color: rgb(220, 220, 220);
+}
