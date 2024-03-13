@@ -14,20 +14,20 @@
 <body>
 <header class="header">
     <div class="header__container container">
-        <a class="header__logo logo" href="./home.php">Escape.</a>
+        <a class="header__logo logo" href="/home">Escape.</a>
         <nav class="navigation">
             <ul class="navigation__menu">
                 <li class="navigation__item">
-                    <a class="navigation__link" href="./home.php">Home</a>
+                    <a class="navigation__link" href="/home">Home</a>
                 </li>
                 <li class="navigation__item">
-                    <a class="navigation__link" href="#">Categories</a>
+                    <a class="navigation__link" href="/">Categories</a>
                 </li>
                 <li class="navigation__item">
-                    <a class="navigation__link" href="#">About</a>
+                    <a class="navigation__link" href="/">About</a>
                 </li>
                 <li class="navigation__item">
-                    <a class="navigation__link" href="#">Contact</a>
+                    <a class="navigation__link" href="/">Contact</a>
                 </li>
             </ul>
         </nav>
@@ -38,7 +38,7 @@
         <h1 class="main__title">The Road Ahead</h1>
         <p class="main__subtitle">The road ahead might be paved - it might not be.</p>
     </div>
-    <img class="main__image" src="./images/northern_lights.png" alt="Северное сияние" width="1440" height="534">
+    <img class="main__image" src="/images/northern_lights.png" alt="Северное сияние" width="1440" height="534">
     <div class="main__text-content container">
         <p class="main__text">Dark spruce forest frowned on either side the frozen waterway. The trees had been
             stripped by a recent wind of their white covering of frost, and they seemed to lean towards each other,
@@ -81,16 +81,16 @@
         <nav class="footer__navigation navigation">
             <ul class="navigation__menu">
                 <li class="navigation__item">
-                    <a class="navigation__link navigation__link_footer" href="#">Home</a>
+                    <a class="navigation__link navigation__link_footer" href="/home">Home</a>
                 </li>
                 <li class="navigation__item">
-                    <a class="navigation__link navigation__link_footer" href="#">Categories</a>
+                    <a class="navigation__link navigation__link_footer" href="/">Categories</a>
                 </li>
                 <li class="navigation__item">
-                    <a class="navigation__link navigation__link_footer" href="#">About</a>
+                    <a class="navigation__link navigation__link_footer" href="/">About</a>
                 </li>
                 <li class="navigation__item">
-                    <a class="navigation__link navigation__link_footer" href="#">Contact</a>
+                    <a class="navigation__link navigation__link_footer" href="/">Contact</a>
                 </li>
             </ul>
         </nav>
