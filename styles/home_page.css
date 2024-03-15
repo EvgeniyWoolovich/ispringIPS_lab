@@ -157,9 +157,7 @@
 }
 
 .post_small {
-    display: flex;
     flex: 31.5%;
-    flex-direction: column;
     background: rgb(255, 255, 255);
 }
 
@@ -188,7 +186,6 @@
 .post__content_small {
     display: flex;
     flex-direction: column;
-    padding: 0 14px;
     height: 100%;
 }
 
@@ -202,6 +199,11 @@
     font: 27px/30px Lora, sans-serif;
     color: rgb(255, 255, 255);
     border-radius: 3px;
+}
+
+.post__title_small,
+.post__subtitle_small {
+    padding: 0 13px;
 }
 
 .post__subtitle {
@@ -262,6 +264,12 @@
     width: 100%;
 }
 
+.post__link_small {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
 .post__icon {
     display: inline-block;
     position: absolute;
@@ -277,11 +285,12 @@
 
 .post__content_small {
     border-top: 1px solid rgb(239, 239, 239);
-    border-bottom: 1px solid rgb(239, 239, 239);
 }
 
 .post__description_small {
     padding: 12px 13px 10px;
+    border-top: 1px solid rgb(239, 239, 239);
+
 }
 
 .navigation__link_footer {
