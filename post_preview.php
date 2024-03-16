@@ -1,12 +1,13 @@
 <?php
-    $largePostModifier = 'large';
-    $smallPostModifier = 'small';
+$largePostModifier = 'large';
+$smallPostModifier = 'small';
 
-    $currentDate = $post['block_modifier'] === $largePostModifier ? date("F j, Y", $post['timestamp']) : date("n/j/Y", $post['timestamp'])
+$currentDate = $post['block_modifier'] === $largePostModifier ? date("F j, Y", $post['timestamp']) : date("n/j/Y", $post['timestamp'])
 ?>
 
 <div class="posts-block__post post post_<?= $post['block_modifier'] ?>">
-    <a class="post__link post__link_<?= $post['block_modifier'] ?>" href="<?= $post['link'] ?>">
+    <a class="post__link post__link_<?= $post['block_modifier'] ?>" title="<?= $post['title'] ?>"
+       href="/post?id=<?= $post['id']?>">
         <img class="post__image post__image_<?= $post['block_modifier'] ?>" src="<?= $post['image_url'] ?>"
              alt="<?= $post['image_alt'] ?>">
         <div class="post__content post__content_<?= $post['block_modifier'] ?>">
@@ -28,7 +29,7 @@
             </div>
         </div>
     </a>
-    <?php if($post['note']): ?>
-        <span class="post__icon"><?=($post['note'])?></span>
+    <?php if ($post['note']): ?>
+        <span class="post__icon"><?= ($post['note']) ?></span>
     <?php endif; ?>
 </div>

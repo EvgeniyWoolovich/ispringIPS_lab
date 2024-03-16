@@ -2,6 +2,7 @@
 
 $posts = [
     [
+        'id' => 1,
         'title' => 'The Road Ahead',
         'subtitle' => 'The road ahead might be paved - it might not be.',
         'image_url' => '/static/images/posts/northern_lights_post.jpg',
@@ -15,19 +16,7 @@ $posts = [
         'block_modifier' => 'large'
     ],
     [
-        'title' => 'From Top Down',
-        'subtitle' => 'Once a year, go someplace you’ve never been before.',
-        'image_url' => '/static/images/posts/сhinese-balloon_post.jpg',
-        'image_alt' => 'Китайские фонари с мальчиком',
-        'author_name' => 'William Wong',
-        'author_image' => '/static/images/author_icon/william_wong.png',
-        'author_alt' => 'Автор Вильям Вонг',
-        'timestamp' => 1443175200,
-        'link' => '/',
-        'note' => 'Adventure',
-        'block_modifier' => 'large'
-    ],
-    [
+        'id' => 2,
         'title' => 'From Top Down',
         'subtitle' => 'Once a year, go someplace you’ve never been before.',
         'image_url' => '/static/images/posts/сhinese-balloon_post.jpg',
@@ -44,6 +33,7 @@ $posts = [
 
 $mostRecentPosts = [
     [
+        'id' => 3,
         'title' => 'Still Standing Tall',
         'subtitle' => 'Life begins at the end of your comfort zone.',
         'image_url' => '/static/images/posts/balloon_post.jpg',
@@ -57,6 +47,7 @@ $mostRecentPosts = [
         'block_modifier' => 'small'
     ],
     [
+        'id' => 4,
         'title' => 'Sunny Side Up',
         'subtitle' => 'No place is ever as bad as they tell you it’s going to be.',
         'image_url' => '/static/images/posts/golden-gate_post.jpg',
@@ -70,6 +61,7 @@ $mostRecentPosts = [
         'block_modifier' => 'small'
     ],
     [
+        'id' => 5,
         'title' => 'Water Falls',
         'subtitle' => 'We travel not to escape life, but for life not to escape us.',
         'image_url' => '/static/images/posts/river_post.jpg',
@@ -83,6 +75,7 @@ $mostRecentPosts = [
         'block_modifier' => 'small'
     ],
     [
+        'id' => 6,
         'title' => 'Through the Mist',
         'subtitle' => 'Travel makes you see what a tiny place you occupy in the world.',
         'image_url' => '/static/images/posts/rushing-river_post.jpg',
@@ -96,6 +89,7 @@ $mostRecentPosts = [
         'block_modifier' => 'small'
     ],
     [
+        'id' => 7,
         'title' => 'Awaken Early',
         'subtitle' => 'Not all those who wander are lost.',
         'image_url' => '/static/images/posts/elevator_post.jpg',
@@ -109,6 +103,7 @@ $mostRecentPosts = [
         'block_modifier' => 'small'
     ],
     [
+        'id' => 8,
         'title' => 'Try it Always',
         'subtitle' => 'The world is a book, and those who do not travel read only one page.',
         'image_url' => '/static/images/posts/waterfall_post.jpg',
