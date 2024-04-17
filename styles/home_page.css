@@ -159,6 +159,7 @@
 .post_small {
     flex: 31.5%;
     background: rgb(255, 255, 255);
+    position: relative;
 }
 
 .post__image {

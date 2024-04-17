@@ -1,127 +1,10 @@
 <?php
-
-$posts = [
-    [
-        'id' => 1,
-        'title' => 'The Road Ahead',
-        'subtitle' => 'The road ahead might be paved - it might not be.',
-        'image_url' => '/static/images/posts/northern_lights_post.jpg',
-        'image_alt' => 'Северное сияние',
-        'author_name' => 'Mat Vogels',
-        'author_image' => '/static/images/author_icon/mat_vogels.png',
-        'author_alt' => 'Автор Вильям Вонг',
-        'timestamp' => 1443175200,
-        'link' => '/post',
-        'note' => '',
-        'block_modifier' => 'large'
-    ],
-    [
-        'id' => 2,
-        'title' => 'From Top Down',
-        'subtitle' => 'Once a year, go someplace you’ve never been before.',
-        'image_url' => '/static/images/posts/сhinese-balloon_post.jpg',
-        'image_alt' => 'Китайские фонари с мальчиком',
-        'author_name' => 'William Wong',
-        'author_image' => '/static/images/author_icon/william_wong.png',
-        'author_alt' => 'Автор Вильям Вонг',
-        'timestamp' => 1443175200,
-        'link' => '/',
-        'note' => 'Adventure',
-        'block_modifier' => 'large'
-    ],
-];
-
-$mostRecentPosts = [
-    [
-        'id' => 3,
-        'title' => 'Still Standing Tall',
-        'subtitle' => 'Life begins at the end of your comfort zone.',
-        'image_url' => '/static/images/posts/balloon_post.jpg',
-        'image_alt' => 'Пилотируемые шары в поле',
-        'author_name' => 'William Wong',
-        'author_image' => '/static/images/author_icon/mat_vogels.png',
-        'author_alt' => 'Автор Вильям Вонг',
-        'timestamp' => 1443175200,
-        'link' => '/',
-        'note' => '',
-        'block_modifier' => 'small'
-    ],
-    [
-        'id' => 4,
-        'title' => 'Sunny Side Up',
-        'subtitle' => 'No place is ever as bad as they tell you it’s going to be.',
-        'image_url' => '/static/images/posts/golden-gate_post.jpg',
-        'image_alt' => 'Мост Золотые ворота',
-        'author_name' => 'Mat Vogels',
-        'author_image' => '/static/images/author_icon/mat_vogels.png',
-        'author_alt' => 'Автор Мет Воглес',
-        'timestamp' => 1443175200,
-        'link' => '/',
-        'note' => '',
-        'block_modifier' => 'small'
-    ],
-    [
-        'id' => 5,
-        'title' => 'Water Falls',
-        'subtitle' => 'We travel not to escape life, but for life not to escape us.',
-        'image_url' => '/static/images/posts/river_post.jpg',
-        'image_alt' => 'Туман над рекой',
-        'author_name' => 'Mat Vogels',
-        'author_image' => '/static/images/author_icon/mat_vogels.png',
-        'author_alt' => 'Автор Мет Воглес',
-        'timestamp' => 1443175200,
-        'link' => '/',
-        'note' => '',
-        'block_modifier' => 'small'
-    ],
-    [
-        'id' => 6,
-        'title' => 'Through the Mist',
-        'subtitle' => 'Travel makes you see what a tiny place you occupy in the world.',
-        'image_url' => '/static/images/posts/rushing-river_post.jpg',
-        'image_alt' => 'Бурная река',
-        'author_name' => 'William Wong',
-        'author_image' => '/static/images/author_icon/mat_vogels.png',
-        'author_alt' => 'Автор Вильям Вонг',
-        'timestamp' => 1443175200,
-        'link' => '/',
-        'note' => '',
-        'block_modifier' => 'small'
-    ],
-    [
-        'id' => 7,
-        'title' => 'Awaken Early',
-        'subtitle' => 'Not all those who wander are lost.',
-        'image_url' => '/static/images/posts/elevator_post.jpg',
-        'image_alt' => 'Подъемник в тумане',
-        'author_name' => 'Mat Vogels',
-        'author_image' => '/static/images/author_icon/mat_vogels.png',
-        'author_alt' => 'Автор Мет Воглес',
-        'timestamp' => 1443175200,
-        'link' => '/',
-        'note' => '',
-        'block_modifier' => 'small'
-    ],
-    [
-        'id' => 8,
-        'title' => 'Try it Always',
-        'subtitle' => 'The world is a book, and those who do not travel read only one page.',
-        'image_url' => '/static/images/posts/waterfall_post.jpg',
-        'image_alt' => 'Радуга на фоне водопада',
-        'author_name' => 'Mat Vogels',
-        'author_image' => '/static/images/author_icon/mat_vogels.png',
-        'author_alt' => 'Автор Мет Воглес',
-        'timestamp' => 1443175200,
-        'link' => '/',
-        'note' => '',
-        'block_modifier' => 'small'
-    ],
-
-]
+include './data/DataBaseProcessing.php';
+$connectDataBase = new DataBase();
+$posts = $connectDataBase->getData();
 ?>
-
 <!DOCTYPE html>
-<html lang="RU">
+<html lang="EN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -136,27 +19,7 @@ $mostRecentPosts = [
 </head>
 <body>
 <div class="section-wrapper-top">
-    <header class="header">
-        <div class="header__container container">
-            <a class="header__logo logo" href="/home">Escape.</a>
-            <nav class="navigation">
-                <ul class="navigation__menu">
-                    <li class="navigation__item">
-                        <a class="navigation__link navigation__link_header" href="/">Home</a>
-                    </li>
-                    <li class="navigation__item">
-                        <a class="navigation__link navigation__link_header" href="/">Categories</a>
-                    </li>
-                    <li class="navigation__item">
-                        <a class="navigation__link navigation__link_header" href="/">About</a>
-                    </li>
-                    <li class="navigation__item">
-                        <a class="navigation__link navigation__link_header" href="/">Contact</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <?php include 'header.php'; ?>
     <div class="banner container">
         <h1 class="banner__title">Let's do it together.</h1>
         <p class="banner__subtitle">We travel the world in search of stories. Come along for the ride.</p>
@@ -192,7 +55,9 @@ $mostRecentPosts = [
         </div>
         <?php
         foreach ($posts as $post) {
-            include 'post_preview.php';
+            if ($post['featured']) {
+                include 'post_preview.php';
+            }
         }
         ?>
     </div>
@@ -201,32 +66,14 @@ $mostRecentPosts = [
             <h2 class="posts-block__title">Most Recent</h2>
         </div>
         <?php
-        foreach ($mostRecentPosts as $post) {
-            include 'post_preview.php';
+        foreach ($posts as $post) {
+            if ($post['recent']) {
+                include 'post_preview.php';
+            }
         }
         ?>
     </div>
 </main>
-<footer class="footer">
-    <div class="footer__container container">
-        <a class="footer__logo logo" href="#">Escape.</a>
-        <nav class="footer__navigation navigation">
-            <ul class="navigation__menu">
-                <li class="navigation__item">
-                    <a class="navigation__link navigation__link_footer" href="/">Home</a>
-                </li>
-                <li class="navigation__item">
-                    <a class="navigation__link navigation__link_footer" href="/">Categories</a>
-                </li>
-                <li class="navigation__item">
-                    <a class="navigation__link navigation__link_footer" href="/">About</a>
-                </li>
-                <li class="navigation__item">
-                    <a class="navigation__link navigation__link_footer" href="/">Contact</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</footer>
+<?php include 'footer.php'; ?>
 </body>
 </html>

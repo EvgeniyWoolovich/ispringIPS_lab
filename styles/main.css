@@ -63,3 +63,36 @@
 .footer__logo:hover {
     color: rgb(220, 220, 220);
 }
+
+.page-404 {
+    height: 77.5vh;
+}
+
+.page-404__title {
+    font: 50px 'Lora', sans-serif;
+    text-align: center;
+}
+
+.page-404__wrapper {
+    display: flex;
+    max-width: 768px;
+    margin: 60px auto 0;
+    justify-content: center;
+}
+
+.page-404__image-container {
+    max-width: 150px;
+}
+
+.page-404__image-container_animated{
+    position: relative;
+    top: 20px;
+    display: inline-block;
+    animation: bounce 1s ease infinite alternate;
+}
+
+@keyframes bounce {
+    100% {
+        top: -20px;
+    }
+}
