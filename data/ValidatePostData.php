@@ -53,7 +53,7 @@ class ValidatePostData
         return ($dataItem === 1 || $dataItem === 0) && gettype($dataItem) === self::TYPE_INTEGER;
     }
 
-    public function isValidCharType($dataItem): bool
+    public function isValidCharType(mixed $dataItem): bool
     {
 
         if (gettype($dataItem) !== self::TYPE_STRING) {
@@ -71,7 +71,7 @@ class ValidatePostData
         return $dataItem && gettype($dataItem) === self::TYPE_STRING && strlen($dataItem) <= self::MAX_LENGTH_VARCHAR;
     }
 
-    public function isValidTextType($dataItem): bool
+    public function isValidTextType(mixed $dataItem): bool
     {
         if (!$dataItem) {
             echo 'Error: Empty field';
@@ -84,7 +84,7 @@ class ValidatePostData
         return $dataItem && gettype($dataItem) === self::TYPE_STRING;
     }
 
-    public function isValidIntegerType($dataItem): bool
+    public function isValidIntegerType(mixed $dataItem): bool
     {
         if (!$dataItem) {
             echo 'Error: Empty field';
@@ -97,7 +97,7 @@ class ValidatePostData
         return $dataItem && gettype($dataItem) === self::TYPE_INTEGER;
     }
 
-    public  function isValidNote($note): bool
+    public  function isValidNote(mixed $note): bool
     {
         if (!(strlen($note) < self::MAX_LENGTH_VARCHAR)) {
             echo 'Error: Maximum limit exceeded';

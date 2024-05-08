@@ -1,8 +1,6 @@
 <?php
 include './data/DataBaseProcessing.php';
-$id = $_GET['id'];
-$connectionDataBase = new DataBase();
-$post = $connectionDataBase->getPostById($id);
+$post = $connectDataBase->getPostById() ?? header('Location: /404');
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +17,7 @@ $post = $connectionDataBase->getPostById($id);
           rel="stylesheet">
 </head>
 <body>
-<?php include 'header.php'; ?>
+<?php include './headers/header.php'; ?>
 <main class="main">
     <div class="main__container container">
         <h1 class="main__title"><?= $post['title'] ?? null ?></h1>
@@ -31,6 +29,6 @@ $post = $connectionDataBase->getPostById($id);
         <?= $post['content'] ?? null ?>
     </div>
 </main>
-<?php include 'footer.php'; ?>
+<?php include './footers/footer.php'; ?>
 </body>
 </html>

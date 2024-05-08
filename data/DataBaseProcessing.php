@@ -45,13 +45,14 @@ class DataBase
         return $dataArray;
     }
 
-    public function getPostById($id): array|null
+    public function getPostById(): array|null
     {
+        $uuid = $_GET['id'];
         $dataBaseConnection = $this->createDBConnection();
         $post = [];
 
         try {
-            $result = $dataBaseConnection->query(SqlQuery::GET_POST_BY_ID . $dataBaseConnection->real_escape_string($id) . '"');
+            $result = $dataBaseConnection->query(SqlQuery::GET_POST_BY_ID . "\"{$dataBaseConnection->real_escape_string($uuid)}\";");
             $post = $result->fetch_assoc();
         } catch (Exception $error) {
             echo $error->getMessage();
@@ -67,7 +68,7 @@ class DataBase
         $authorData = [];
 
         try {
-            $result = $dataBaseConnection->query(SqlQuery::GET_AUTHOR_BY_ID . $dataBaseConnection->real_escape_string($authorId) . '"');
+            $result = $dataBaseConnection->query(SqlQuery::GET_AUTHOR_BY_ID . '"' . $dataBaseConnection->real_escape_string($authorId) . '"');
             $authorData = $result->fetch_assoc();
         } catch (Exception $error) {
             echo $error->getMessage();
@@ -129,13 +130,10 @@ class DataBase
                     featured = '{$featured}',
                     recent = '{$recent}'";
 
-        try {
-            $dataBaseConnection->query($sql);
-
-        } catch (Exception $error) {
-            echo $error->getMessage();
-        }
+        $dataBaseConnection->query($sql);
 
         $this->closeDBConnection($dataBaseConnection);
     }
 }
+
+$connectDataBase = new DataBase();

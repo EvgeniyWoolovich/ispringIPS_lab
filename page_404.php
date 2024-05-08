@@ -12,7 +12,7 @@
           rel="stylesheet">
 </head>
 <body>
-<?php include 'header.php'; ?>
+<?php include './headers/header.php'; ?>
 <main class="page-404">
     <h1 class="page-404__title">What you were looking for, you didn't find.</h1>
     <div class="page-404__wrapper">
@@ -32,6 +32,6 @@
         </div>
     </div>
 </main>
-<?php include 'footer.php'; ?>
+<?php include './footers/footer.php'; ?>
 </body>
 </html>

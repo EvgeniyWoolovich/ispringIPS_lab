@@ -1,6 +1,5 @@
 <?php
 include './data/DataBaseProcessing.php';
-$connectDataBase = new DataBase();
 $posts = $connectDataBase->getData();
 ?>
 <!DOCTYPE html>
@@ -19,7 +18,7 @@ $posts = $connectDataBase->getData();
 </head>
 <body>
 <div class="section-wrapper-top">
-    <?php include 'header.php'; ?>
+    <?php include './headers/header.php'; ?>
     <div class="banner container">
         <h1 class="banner__title">Let's do it together.</h1>
         <p class="banner__subtitle">We travel the world in search of stories. Come along for the ride.</p>
@@ -56,7 +55,7 @@ $posts = $connectDataBase->getData();
         <?php
         foreach ($posts as $post) {
             if ($post['featured']) {
-                include 'post_preview.php';
+                include './post_preview/post_preview.php';
             }
         }
         ?>
@@ -68,12 +67,13 @@ $posts = $connectDataBase->getData();
         <?php
         foreach ($posts as $post) {
             if ($post['recent']) {
-                include 'post_preview.php';
+                include './post_preview/post_preview.php';
             }
         }
         ?>
     </div>
 </main>
-<?php include 'footer.php'; ?>
+<?php include './footers/footer.php'; ?>
 </body>
+<script src="/script/footer_validate.js"></script>
 </html>

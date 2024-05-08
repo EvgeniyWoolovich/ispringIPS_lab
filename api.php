@@ -23,9 +23,13 @@ if ($method === 'POST') {
 
 function saveImage(string $imageBase64, string $imageUrl): void
 {
-    $imageBase64Array = explode(';base64,', $imageBase64);
-    $imageDecoded = base64_decode($imageBase64Array[1]);
-    saveFile($imageUrl, $imageDecoded);
+//    try {
+        $imageBase64Array = explode(';base64,', $imageBase64);
+        $imageDecoded = base64_decode($imageBase64Array[1]);
+        saveFile($imageUrl, $imageDecoded);
+//    } catch (Exception $error) {
+//        echo $error->getMessage();
+//    }
 }
 
 function saveFile(string $file, string $data): void
@@ -97,9 +101,8 @@ function savePost($data): void
             $connectDataBase->insertNewAuthor($authorName, $authorImageUrl, $authorImageAlt);
             $authorId = $connectDataBase->getLastId();
         }
-
-        $connectDataBase->insertPost($uuid, $title, $textContent, $subtitle, $imageUrl, $imageAlt, $authorId, $postData, $note, $featured, $recent);
         saveImage($data['image'], createImageUrlForSaveImage($uuid, $excitation));
+        $connectDataBase->insertPost($uuid, $title, $textContent, $subtitle, $imageUrl, $imageAlt, $authorId, $postData, $note, $featured, $recent);
     } catch (Exception $error) {
         echo $error->getMessage();
     }
