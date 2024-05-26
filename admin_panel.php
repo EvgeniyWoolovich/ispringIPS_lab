@@ -27,109 +27,150 @@ $currentDate = date("n/j/Y", time());
             </div>
             <input class="admin-form__submit" id="submit" type="submit" value="Publish">
         </div>
+        <div class="admin-form__push admin-form__push_error">
+            <span class="admin-form__error-text">Whoops! Some fields need your attention :o</span>
+        </div>
+        <div class="admin-form__push admin-form__push_accept">
+            <span class="admin-form__error-text">Publish Complete!</span>
+        </div>
         <div class="admin-form__main">
             <h2 class="admin-form__block-name">Main Information</h2>
             <div class="admin-form__inputs-block-wrapper">
                 <div class="admin-form__inputs-block">
                     <div class="admin-form__input-wrapper admin-form__input-wrapper_title">
-                        <label class="admin-form__label" for="js-title">Title</label>
-                        <input class="admin-form__input" type="text" name="title" id="js-title" placeholder="New Post"
-                               maxlength="255">
+                        <label class="admin-form__label" for="title_input">Title</label>
+                        <input class="admin-form__input" type="text" data-name="title" name="title" id="title_input"
+                               placeholder="New Post" maxlength="255" required>
                         <span class="admin-form__hidden-error admin-form__hidden-error_title"></span>
                     </div>
-                    <div class="admin-form__input-wrapper admin-form__input-wrapper_description">
-                        <label class="admin-form__label" for="js-description">
-                            Short description
-                        </label>
-                        <input class="admin-form__input" type="text" id="js-description" name="description"
-                               placeholder="Please, enter any description" maxlength="255">
-                        <span class="admin-form__hidden-error admin-form__hidden-error_description"></span>
+                    <div class="admin-form__input-wrapper admin-form__input-wrapper_subtitle">
+                        <label class="admin-form__label" for="subtitle_input">Short description</label>
+                        <input class="admin-form__input" type="text" id="subtitle_input" data-name="subtitle"
+                               name="subtitle"
+                               placeholder="Please, enter any description" maxlength="255" required>
+                        <span class="admin-form__hidden-error admin-form__hidden-error_subtitle"></span>
                     </div>
                     <div class="admin-form__input-wrapper admin-form__input-wrapper_author-name">
-                        <label class="admin-form__label" for="js-author_name">
-                            Author name
-                        </label>
-                        <input class="admin-form__input" type="text" id="js-author_name"
-                               placeholder="Please, enter Author name">
+                        <label class="admin-form__label" for="author-name_input">Author name</label>
+                        <input class="admin-form__input" type="text" data-name="author-name" id="author-name_input"
+                               name="author-name"
+                               placeholder="Please, enter Author name" maxlength="127" required>
                         <span class="admin-form__hidden-error admin-form__hidden-error_author-name"></span>
                     </div>
-                    <div class="admin-form__input-wrapper admin-form__input-wrapper_author" id="drop-area-author">
-                        <label class="admin-form__label admin-form__label_author-photo" for="author_photo">
-                            Author Photo
-                        </label>
-                        <input class="admin-form__input admin-form__input_file" multiple accept="image/*" type="file"
-                               id="author_photo" hidden>
-                        <span class="admin-form__view-photo admin-form__view-photo_author" id="js-author-photo">
-                            <img class="admin-form__photo admin-form__photo_icon" src="/static/images/icons/camera.svg"
-                                 alt="Author Photo">
+                    <div class="admin-form__input-wrapper admin-form__input-wrapper_author-photo"
+                         id="drop-area_author-photo">
+                        <label class="admin-form__label admin-form__label_author-photo" for="author-photo_input">Author
+                            Photo</label>
+                        <input class="admin-form__input admin-form__input_file" type="file" data-name="author-photo"
+                               name="author-photo"
+                               accept="image/jpeg, image/png, image/svg" id="author-photo_input" required hidden>
+                        <span class="admin-form__view-background admin-form__view-background_author-photo"
+                              data-name="author-photo"
+                              id="author-photo_background-preview-photo">
+                            <img class="admin-form__icon admin-form__icon_cam admin-form__icon_author"
+                                 src="/static/images/icons/camera.svg"
+                                 alt="Icon Cam">
                         </span>
-                        <span class="admin-form__button admin-form__button_upload"
-                              id="author-button-upload">Upload</span>
-                        <span class="admin-form__button admin-form__button_remove" id="author-photo-remove">
-                            <img class="admin-form__photo admin-form__photo_button"
+                        <span class="admin-form__button admin-form__button_upload admin-form__icon_author-photo"
+                              id="author-photo_button-upload" data-name="author-photo"></span>
+                        <span class="admin-form__button admin-form__button_remove" data-name="author-photo"
+                              id="author_button-remove">
+                            <img class="admin-form__icon admin-form__icon_trash"
                                  src="/static/images/icons/trash-red.svg" alt="Author Photo">
                             Remove
                         </span>
-                        <span class="admin-form__hidden-error admin-form__hidden-error_author-name"></span>
+                        <span class="admin-form__hidden-error admin-form__hidden-error_author-photo"></span>
                     </div>
                     <div class="admin-form__input-wrapper admin-form__input-wrapper_publish-date">
-                        <label class="admin-form__label" for="js-publish_date">Publish Date</label>
-                        <input class="admin-form__input" type="date" id="js-publish_date">
+                        <label class="admin-form__label" for="publish-date_input">Publish Date</label>
+                        <input class="admin-form__input" type="date" data-name="publish-date" name="publish-date"
+                               id="publish-date_input"
+                               required>
                         <span class="admin-form__hidden-error admin-form__hidden-error_publish-date"></span>
                     </div>
-                    <div class="admin-form__input-wrapper admin-form__input-wrapper_image-large" id="drop-image-large">
-                        <label class="admin-form__label admin-form__label_image-large" for="image-large">
-                            Author Photo
-                        </label>
-                        <input class="admin-form__input admin-form__input_file" multiple accept="image/*" type="file"
-                               id="image-large" hidden>
-                        <span class="admin-form__view-photo admin-form__view-image_large" id="js-image-large">
-                                <img class="admin-form__photo admin-form__photo_icon admin-form__photo_icon_large"
-                                     src="/static/images/icons/camera.svg" alt="Author Photo">
+                    <div class="admin-form__input-wrapper admin-form__input-wrapper_image-large"
+                         id="drop-area_image-large">
+                        <label class="admin-form__label admin-form__label_image-large" for="image-large_input">Author
+                            Photo</label>
+                        <input class="admin-form__input admin-form__input_file"
+                               accept="image/jpeg, image/png, image/svg" type="file" data-name="image-large"
+                               name="image-large"
+                               id="image-large_input" required hidden>
+                        <span class="admin-form__view-background admin-form__view-background_image-large"
+                              data-name="image-large"
+                              id="image-large_background-preview-photo">
+                            <img class="admin-form__photo admin-form__photo_icon admin-form__photo_icon_large"
+                                 src="/static/images/icons/camera.svg" alt="Author Photo">
                         </span>
                         <div class="admin-form__button-wrapper">
                             <span class="admin-form__button image-large_button_large-upload"
-                                  id="image-large_button_upload">
-                                <img class="admin-form__photo admin-form__photo_button"
-                                     src="/static/images/icons/camera.svg" alt="Author Photo">
+                                  id="image-large_button-upload" data-name="image-large">
+                                <img class="admin-form__icon admin-form__icon_cam admin-form__icon_image-large"
+                                     src="/static/images/icons/camera.svg"
+                                     alt="Author Photo">
                                 Upload New
                             </span>
-                            <span class="admin-form__button admin-form__button_remove" id="image-large-button-remove">
-                                <img class="admin-form__photo admin-form__photo_button"
-                                     src="/static/images/icons/trash-red.svg"
-                                     alt="Author Photo">
+                            <span class="admin-form__button admin-form__button_remove" id="image-large_button-remove"
+                                  data-name="image-large">
+                                <img class="admin-form__icon admin-form__icon_trash"
+                                     src="/static/images/icons/trash-red.svg" alt="Author Photo">
                                 Remove
                             </span>
                         </div>
                         <span class="admin-form__notes">Size up to 10mb. Format: png, jpeg, gif.</span>
-                        <span class="admin-form__hidden-error"></span>
+                        <span class="admin-form__hidden-error admin-form__hidden-error_image-large"></span>
                     </div>
-                    <div class="admin-form__input-wrapper admin-form__input-wrapper_image-small" id="drop-image-small">
-                        <label class="admin-form__label admin-form__label_image-small" for="image-small">
-                            Author Photo
-                        </label>
-                        <input class="admin-form__input admin-form__input_file" multiple accept="image/*" type="file"
-                               id="image-small" hidden>
-                        <span class="admin-form__view-photo admin-form__view-image_small" id="js-image-small">
-                                <img class="admin-form__photo admin-form__photo_icon admin-form__photo_icon_small"
-                                     src="/static/images/icons/camera.svg" alt="Author Photo">
+                    <div class="admin-form__input-wrapper admin-form__input-wrapper_image-small"
+                         id="drop-area_image-small">
+                        <label class="admin-form__label admin-form__label_image-small" for="image-small_input">Author
+                            Photo</label>
+                        <input class="admin-form__input admin-form__input_file"
+                               accept="image/jpeg, image/png, image/svg" data-name="image-small" name="image-small"
+                               type="file"
+                               id="image-small_input" required hidden>
+                        <span class="admin-form__view-background admin-form__view-background_image-small"
+                              data-name="image-small"
+                              id="image-small_background-preview-photo">
+                            <img class="admin-form__icon admin-form__photo_icon admin-form__photo_icon_small"
+                                 src="/static/images/icons/camera.svg" alt="Author Photo">
                         </span>
                         <div class="admin-form__button-wrapper">
                             <span class="admin-form__button image-large_button_small-upload"
-                                  id="image-small_button_upload">
-                                <img class="admin-form__photo admin-form__photo_button"
-                                     src="/static/images/icons/camera.svg" alt="Author Photo">
+                                  id="image-small_button-upload" data-name="image-small">
+                                <img class="admin-form__icon admin-form__icon_cam admin-form__icon_image-small"
+                                     data-name="image-small" src="/static/images/icons/camera.svg"
+                                     alt="Author Photo">
                                 Upload New
                             </span>
-                            <span class="admin-form__button admin-form__button_remove" id="image-small-button-remove">
-                                <img class="admin-form__photo admin-form__photo_button"
-                                     src="/static/images/icons/trash-red.svg"
-                                     alt="Author Photo">
+                            <span class="admin-form__button admin-form__button_remove" data-name="image-small"
+                                  id="image-small_button-remove">
+                                <img class="admin-form__icon admin-form__icon_trash"
+                                     src="/static/images/icons/trash-red.svg" alt="Author Photo">
                                 Remove
                             </span>
                         </div>
                         <span class="admin-form__notes">Size up to 5mb. Format: png, jpeg, gif.</span>
-                        <span class="admin-form__hidden-error"></span>
+                        <span class="admin-form__hidden-error admin-form__hidden-error_image-small"></span>
+                    </div>
+                    <div class="admin-form__input-wrapper admin-form__input-wrapper_type-post">
+                        <span class="admin-form__title admin-form__title_type-post">Post type</span>
+                        <label class="admin-form__label admin-form__label_checkbox-wrapper" for="featured">
+                            <input class="admin-form__input admin-form__input_checkbox" type="checkbox"
+                                   data-name="featured"
+                                   name="featured"
+                                   id="featured"
+                            >
+                            Featured post
+                        </label>
+                        <label class="admin-form__label admin-form__label_checkbox-wrapper" for="most-recent">
+                            <input class="admin-form__input admin-form__input_checkbox" type="checkbox"
+                                   data-name="most-recent"
+                                   name="most-recent"
+                                   id="most-recent"
+                            >
+                            Most Recent
+                        </label>
+                        <span class="admin-form__hidden-error admin-form__hidden-error_type-post"></span>
                     </div>
                 </div>
             </div>
@@ -139,10 +180,11 @@ $currentDate = date("n/j/Y", time());
                         <p class="view-post__label">Article preview</p>
                         <div class="view-post__wrapper-post">
                             <div class="view-post__post">
-                                <h4 class="view-post__title view-post__title_large js-title-view">New Post</h4>
-                                <p class="view-post__subtitle view-post__subtitle_large js-description-view">
-                                    Please, enter any description</p>
-                                <div class="view-post__image view-post__image_large" id="js-view-image-post"></div>
+                                <h4 class="view-post__title view-post__title_large">New Post</h4>
+                                <p class="view-post__subtitle view-post__subtitle_large">Please,
+                                    enter any description</p>
+                                <div class="view-post__image view-post__image_image-large"
+                                     id="js-view-image-post"></div>
                             </div>
                         </div>
                     </div>
@@ -153,21 +195,21 @@ $currentDate = date("n/j/Y", time());
                         <div class="view-post__wrapper-content">
                             <div class="view-post__inner-content">
                                 <div class="view-post__wrapper-card">
-                                    <div class="view-post__image view-post__image_small" id="js-view-image-card"></div>
+                                    <div class="view-post__image view-post__image_image-small"
+                                         id="js-view-image-card"></div>
                                     <div class="view-post__post-content">
-                                        <h4 class="view-post__title view-post__title_small js-title-view">New Post</h4>
-                                        <p class="view-post__subtitle view-post__subtitle_small js-description-view">
-                                            Please, enter any description
-                                        </p>
-                                        <div class="view-post__description">
+                                        <h4 class="view-post__title view-post__title_small">New Post</h4>
+                                        <p class="view-post__subtitle view-post__subtitle_small">
+                                            Please, enter any description</p>
+                                        <div class="view-post__text-content">
                                             <div class="view-post__author">
                                                 <div class="view-post__image-wrapper">
-                                                    <div class="view-post__image view-post__image_author"
+                                                    <div class="view-post__image view-post__image_author-photo"
                                                          id="js-view-author-image"></div>
                                                 </div>
-                                                <span class="view-post__author-name js-author_name-view">Enter author name</span>
+                                                <span class="view-post__author-name">Enter author name</span>
                                             </div>
-                                            <span class="view-post__date"
+                                            <span class="view-post__publish-date"
                                                   id="js-publish_date-view"><?= $currentDate ?></span>
                                         </div>
                                     </div>
@@ -180,15 +222,16 @@ $currentDate = date("n/j/Y", time());
         </div>
         <div class="admin-form__footer">
             <h2 class="admin-form__block-name">Content</h2>
-            <div class="admin-form__textarea-wrapper">
-                <label class="admin-form__label" for="js-textarea">Post content (plain text)</label>
-                <textarea class="admin-form__textarea" name="textarea" id="js-textarea" cols="30" rows="10"
+            <div class="admin-form__content-wrapper admin-form__input-wrapper_content">
+                <label class="admin-form__label" for="content_input">Post content (plain text)</label>
+                <textarea class="admin-form__content" data-name="content" name="content" id="content_input"
+                          cols="30" rows="10"
                           placeholder="Type anything you want ..."></textarea>
-                <span class="admin-form__hidden-error admin-form__hidden-error_textarea"></span>
+                <span class="admin-form__hidden-error admin-form__hidden-error_content"></span>
             </div>
         </div>
     </form>
 </main>
 </body>
-<script src="./script/admin_panel.js"></script>
+<script type="module" src="./script/admin_panel.js"></script>
 </html>
