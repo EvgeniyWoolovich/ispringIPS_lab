@@ -54,8 +54,15 @@ $currentDate = date("n/j/Y", time());
                         <label class="admin-form__label" for="author-name_input">Author name</label>
                         <input class="admin-form__input" type="text" data-name="author-name" id="author-name_input"
                                name="author-name"
-                               placeholder="Please, enter Author name" maxlength="127" required>
+                               placeholder="Author name" maxlength="127" required>
                         <span class="admin-form__hidden-error admin-form__hidden-error_author-name"></span>
+                    </div>
+                    <div class="admin-form__input-wrapper admin-form__input-wrapper_note">
+                        <label class="admin-form__label" for="note_input">Note description</label>
+                        <input class="admin-form__input" type="text" id="note_input" data-name="note"
+                               name="note"
+                               placeholder="Please, enter any note" maxlength="12" required>
+                        <span class="admin-form__hidden-error admin-form__hidden-error_note"></span>
                     </div>
                     <div class="admin-form__input-wrapper admin-form__input-wrapper_author-photo"
                          id="drop-area_author-photo">
@@ -90,8 +97,7 @@ $currentDate = date("n/j/Y", time());
                     </div>
                     <div class="admin-form__input-wrapper admin-form__input-wrapper_image-large"
                          id="drop-area_image-large">
-                        <label class="admin-form__label admin-form__label_image-large" for="image-large_input">Author
-                            Photo</label>
+                        <label class="admin-form__label admin-form__label_image-large" for="image-large_input">Hero Image </label>
                         <input class="admin-form__input admin-form__input_file"
                                accept="image/jpeg, image/png, image/svg" type="file" data-name="image-large"
                                name="image-large"
@@ -100,20 +106,20 @@ $currentDate = date("n/j/Y", time());
                               data-name="image-large"
                               id="image-large_background-preview-photo">
                             <img class="admin-form__photo admin-form__photo_icon admin-form__photo_icon_large"
-                                 src="/static/images/icons/camera.svg" alt="Author Photo">
+                                 src="/static/images/icons/camera.svg" alt="Hero Image ">
                         </span>
                         <div class="admin-form__button-wrapper">
                             <span class="admin-form__button image-large_button_large-upload"
                                   id="image-large_button-upload" data-name="image-large">
                                 <img class="admin-form__icon admin-form__icon_cam admin-form__icon_image-large"
                                      src="/static/images/icons/camera.svg"
-                                     alt="Author Photo">
+                                     alt="camera">
                                 Upload New
                             </span>
                             <span class="admin-form__button admin-form__button_remove" id="image-large_button-remove"
                                   data-name="image-large">
                                 <img class="admin-form__icon admin-form__icon_trash"
-                                     src="/static/images/icons/trash-red.svg" alt="Author Photo">
+                                     src="/static/images/icons/trash-red.svg" alt="trash">
                                 Remove
                             </span>
                         </div>
@@ -162,11 +168,11 @@ $currentDate = date("n/j/Y", time());
                             >
                             Featured post
                         </label>
-                        <label class="admin-form__label admin-form__label_checkbox-wrapper" for="most-recent">
+                        <label class="admin-form__label admin-form__label_checkbox-wrapper" for="recent">
                             <input class="admin-form__input admin-form__input_checkbox" type="checkbox"
-                                   data-name="most-recent"
-                                   name="most-recent"
-                                   id="most-recent"
+                                   data-name="recent"
+                                   name="recent"
+                                   id="recent"
                             >
                             Most Recent
                         </label>

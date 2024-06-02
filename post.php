@@ -31,4 +31,5 @@ $post = $connectDataBase->getPostById() ?? header('Location: /404');
 </main>
 <?php include './footers/footer.php'; ?>
 </body>
+<script src="/script/burger_menu.js"></script>
 </html>

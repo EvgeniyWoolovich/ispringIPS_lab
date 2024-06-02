@@ -21,7 +21,7 @@ $posts = $connectDataBase->getData();
     <?php include './headers/header.php'; ?>
     <div class="banner container">
         <h1 class="banner__title">Let's do it together.</h1>
-        <p class="banner__subtitle">We travel the world in search of stories. Come along for the ride.</p>
+        <p class="banner__subtitle">We travel the world in search of stories. Come along for the&nbsp;ride.</p>
         <a class="banner__link" href=".">View Latest Posts</a>
     </div>
 </div>
@@ -55,6 +55,7 @@ $posts = $connectDataBase->getData();
         <?php
         foreach ($posts as $post) {
             if ($post['featured']) {
+                $modifier = 'large';
                 include './post_preview/post_preview.php';
             }
         }
@@ -67,6 +68,7 @@ $posts = $connectDataBase->getData();
         <?php
         foreach ($posts as $post) {
             if ($post['recent']) {
+                $modifier = 'small';
                 include './post_preview/post_preview.php';
             }
         }
@@ -75,5 +77,6 @@ $posts = $connectDataBase->getData();
 </main>
 <?php include './footers/footer.php'; ?>
 </body>
+<script src="/script/burger_menu.js"></script>
 <script src="/script/footer_validate.js"></script>
 </html>

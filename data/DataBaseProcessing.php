@@ -93,6 +93,36 @@ class DataBase
         return $authorsData['MAX(id)'];
     }
 
+    public function getNewUserId(): string
+    {
+        $dataBaseConnection = $this->createDBConnection();
+
+        try {
+            $result = $dataBaseConnection->query(SqlQuery::GET_LAST_USER_ID);
+            $userData = $result->fetch_assoc();
+        } catch (Exception $error) {
+            echo $error->getMessage();
+        }
+
+        $this->closeDBConnection($dataBaseConnection);
+        return ++$userData['MAX(id)'];
+    }
+
+    public function getUserByEmail($email): array|null
+    {
+        $dataBaseConnection = $this->createDBConnection();
+
+        try {
+            $result = $dataBaseConnection->query(SqlQuery::GET_USER_BY_EMAIL . '"' . $dataBaseConnection->real_escape_string($email) . '"');
+            $user = $result->fetch_assoc();
+        } catch (Exception $error) {
+            echo $error->getMessage();
+        }
+
+        $this->closeDBConnection($dataBaseConnection);
+        return $user;
+    }
+
     public function insertNewAuthor($authorName, $authorImageUrl, $authorImageAlt): void
     {
         $dataBaseConnection = $this->createDBConnection();
@@ -114,19 +144,24 @@ class DataBase
     public function insertPost($uuid, $title, $content, $subtitle, $imageUrl, $imageAlt, $authorId, $postData, $note, $featured, $recent): void
     {
         $dataBaseConnection = $this->createDBConnection();
+        $validTitle = $dataBaseConnection->real_escape_string($title);
+        $validContent = $dataBaseConnection->real_escape_string($content);
+        $validSubtitle = $dataBaseConnection->real_escape_string($subtitle);
+        $validImageAlt = $dataBaseConnection->real_escape_string($imageAlt);
+        $validNote = $dataBaseConnection->real_escape_string($note);
 
         $sql = "INSERT INTO
                     post
                 SET 
-                    uuid = '$uuid',
-                    title = '{$dataBaseConnection->real_escape_string($title)}',
-                    content = '{$dataBaseConnection->real_escape_string($content)}',
-                    subtitle = '{$dataBaseConnection->real_escape_string($subtitle)}',
-                    image_url = '$imageUrl',
-                    image_alt = '{$dataBaseConnection->real_escape_string($imageAlt)}',
+                    uuid = '{$uuid}',
+                    title = '{$validTitle}',
+                    content = '{$validContent}',
+                    subtitle = '{$validSubtitle}',
+                    image_url = '{$imageUrl}',
+                    image_alt = '{$validImageAlt}',
                     author_id = '{$authorId}',
                     publish_date = '{$postData}',
-                    note = '{$dataBaseConnection->real_escape_string($note)}',
+                    note = '{$validNote}',
                     featured = '{$featured}',
                     recent = '{$recent}'";
 

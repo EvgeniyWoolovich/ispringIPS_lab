@@ -7,6 +7,9 @@ $method = $_SERVER['REQUEST_METHOD'];
 if ($method === 'POST') {
     $requestJSON = file_get_contents('php://input');
     $data = json_decode($requestJSON, true);
+//    var_dump($data);
+    $log =  fopen('./logger.txt', 'a');
+    fwrite($log, $requestJSON);
 
     if (!$validate->validateData($data)) {
         echo "Отправить форму не возможно, не корректные данные в POST";
@@ -19,17 +22,14 @@ if ($method === 'POST') {
     }
 
     savePost($data);
+    fclose($log);
 }
 
 function saveImage(string $imageBase64, string $imageUrl): void
 {
-//    try {
         $imageBase64Array = explode(';base64,', $imageBase64);
         $imageDecoded = base64_decode($imageBase64Array[1]);
         saveFile($imageUrl, $imageDecoded);
-//    } catch (Exception $error) {
-//        echo $error->getMessage();
-//    }
 }
 
 function saveFile(string $file, string $data): void
@@ -80,8 +80,8 @@ function savePost($data): void
 {
     $connectDataBase = new DataBase();
     $uuid = uuidv4();
-    $postData = date('Y-m-d H:i:s', time());
-    $excitation = imageExtension($data['image']);
+    $postData = $data['publish-date'];
+    $excitation = imageExtension($data['image-large']);
     $imageUrl = createImageUrlForData($uuid, $excitation);
     $imageAlt = $data['title'];
 
@@ -95,14 +95,19 @@ function savePost($data): void
 
     try {
         if (!$connectDataBase->getAuthorById($data['author_id'])) {
-            $authorName = $data['author_name'];
-            $authorImageUrl = $data['author_image_url'];
-            $authorImageAlt = $data['author_image_alt'];
-            $connectDataBase->insertNewAuthor($authorName, $authorImageUrl, $authorImageAlt);
             $authorId = $connectDataBase->getLastId();
+            $uuidAuthor = uuidv4();
+            $authorName = $data['author-name'];
+            $authorExtension = imageExtension($data['author-photo']);
+            $authorImageUrl = createImageUrlForData($uuidAuthor, $authorExtension);
+            $authorImageAlt = $authorName;
+            saveImage($data['author-photo'], createImageUrlForSaveImage($uuidAuthor, $authorExtension));
+            $connectDataBase->insertNewAuthor($authorName, $authorImageUrl, $authorImageAlt);
         }
-        saveImage($data['image'], createImageUrlForSaveImage($uuid, $excitation));
+        saveImage($data['image-large'], createImageUrlForSaveImage($uuid, $excitation));
         $connectDataBase->insertPost($uuid, $title, $textContent, $subtitle, $imageUrl, $imageAlt, $authorId, $postData, $note, $featured, $recent);
+
+        json_encode('status: 200');
     } catch (Exception $error) {
         echo $error->getMessage();
     }

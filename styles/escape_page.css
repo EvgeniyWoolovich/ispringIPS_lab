@@ -1,7 +1,7 @@
 @import "main.css";
 
 .header {
-    margin-bottom: 89px;
+    margin-bottom: clamp(30px, 8vw ,89px);
 }
 
 .header__logo {
@@ -31,7 +31,7 @@
 .main__title {
     margin-bottom: 20px;
     text-align: center;
-    font: 50px 'Lora', sans-serif;
+    font: clamp(30px, 8vw, 50px) 'Lora', sans-serif;
     letter-spacing: 2px;
     color: rgb(46, 46, 46);
 }
@@ -44,14 +44,14 @@
 }
 
 .main__image {
-    margin-bottom: 140px;
+    margin-bottom: clamp(40px, 10vw, 140px);
     width: 100%;
     object-fit: cover;
 }
 
 .main p {
     margin-bottom: 30px;
-    font: 24px/35px 'Oxygen', sans-serif;
+    font: clamp(14px, 4vw, 24px)/1.5 'Oxygen', sans-serif;
     color: rgba(16, 19, 21);
 }
 

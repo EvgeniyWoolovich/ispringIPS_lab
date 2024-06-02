@@ -9,13 +9,13 @@ class ValidatePostData
 
     public function validateData(array $data): bool|null
     {
-        $authorId = self::isValidIntegerType($data['author_id']);
+        $authorId = self::isValidIntegerType(self::convertToIntTinyType($data['author_id']));
         $title = self::isValidCharType($data['title']);
         $textContent = self::isValidTextType($data['content']);
         $subtitle = self::isValidCharType($data['subtitle']);
         $note = self::isValidNote($data['note']);
-        $featured = self::isValidTinyIntType($data['featured']);
-        $recent = self::isValidTinyIntType($data['recent']);
+        $featured = self::isValidTinyIntType(self::convertToIntTinyType($data['featured']));
+        $recent = self::isValidTinyIntType(self::convertToIntTinyType($data['recent']));
 
         return $authorId && $title && $textContent && $subtitle && $note && $featured && $recent;
     }
@@ -26,8 +26,7 @@ class ValidatePostData
 
         try {
             if (!$dataBaseProcessing->getAuthorById($data['author_id'])) {
-                $authorName = self::isValidCharType($data['author_name']);
-                $authorImageAlt = self::isValidCharType($data['author_image_alt']);
+                $authorName = self::isValidCharType($data['author-name']);
             } else {
                 return true;
             }
@@ -36,7 +35,7 @@ class ValidatePostData
             echo $error->getMessage();
         }
 
-        return $authorName && $authorImageAlt;
+        return $authorName;
     }
 
     public function isValidTinyIntType(int $dataItem): bool
@@ -90,6 +89,8 @@ class ValidatePostData
             echo 'Error: Empty field';
         }
 
+        var_dump(gettype($dataItem));
+        var_dump(gettype($dataItem) !== self::TYPE_INTEGER);
         if (gettype($dataItem) !== self::TYPE_INTEGER) {
             echo 'Error: is not Integer Type';
         }
@@ -97,6 +98,10 @@ class ValidatePostData
         return $dataItem && gettype($dataItem) === self::TYPE_INTEGER;
     }
 
+    public function convertToIntTinyType($value): int
+    {
+        return intval($value);
+    }
     public  function isValidNote(mixed $note): bool
     {
         if (!(strlen($note) < self::MAX_LENGTH_VARCHAR)) {

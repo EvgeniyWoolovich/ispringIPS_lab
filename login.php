@@ -24,23 +24,26 @@
             <form class="form authentication__form" method="post">
                 <h2 class="authentication__title">Log In</h2>
                 <div class="authentication__error-field hidden">
-                    <span class="authentication__error-text"></span>
+                    <span class="authentication__error-text">A-Ah! Check all fields</span>
                 </div>
-                <label class="authentication__label" for="email">Email</label>
-                <input class="authentication__input authentication__input_email" type="email" name="email" id="email">
-                <span class="authentication__error authentication__error_email"></span>
                 <div class="authentication__input-wrapper">
-                    <label class="authentication__label" for="password">Password</label>
-                    <input class="authentication__input authentication__input_password" type="password" name="password"
-                           id="password">
-                    <span class="authentication__toggle-password"></span>
+                    <label class="authentication__label" for="email_input">Email</label>
+                    <input class="authentication__input authentication__input_user_email" type="email" name="user_email"
+                           id="email_input" required>
+                    <span class="authentication__error authentication__error_user_email"></span>
                 </div>
-                <span class="authentication__error authentication__error_password"></span>
-                <input class="authentication__submit" type="submit" value="Log In" id="submit">
+                <div class="authentication__input-wrapper">
+                    <label class="authentication__label" for="password_input">Password</label>
+                    <input class="authentication__input authentication__input_password" type="password" name="password"
+                           id="password_input" required>
+                    <span class="authentication__toggle-password"></span>
+                    <span class="authentication__error authentication__error_password"></span>
+                </div>
+                <input class="authentication__submit" type="submit" value="Log In" id="submit_login">
             </form>
         </div>
     </div>
 </div>
 </body>
-<script src="/script/login_panel_validation.js"></script>
+<script type="module" src="/script/login.js"></script>
 </html>

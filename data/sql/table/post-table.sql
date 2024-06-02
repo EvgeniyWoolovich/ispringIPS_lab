@@ -14,4 +14,3 @@ CREATE TABLE post
     recent       TINYINT      NOT NULL,
     FOREIGN KEY (author_id) REFERENCES author (id) ON DELETE RESTRICT
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE utf8mb4_unicode_ci;
-

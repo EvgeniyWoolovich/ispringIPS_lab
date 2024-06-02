@@ -1,5 +1,4 @@
 <?php
-$modifier = $post['featured'] ? 'large' : 'small';
 $currentDate = $post['featured'] ? date("F j, Y", $post['unix_time']) : date("n/j/Y", $post['unix_time']);
 ?>
 
